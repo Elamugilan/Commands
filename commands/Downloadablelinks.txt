@@ -1,8 +1,4 @@
-sudo su
-apt update
 apt install docker.io
-usermod -aG docker ubuntu
-newgrp docker
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install terraform
@@ -13,26 +9,9 @@ sudo ./aws/install
 sudo apt install curl -y
 curl -LO https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-kubectl version --client
-mkdir supermario
-cd supermario
 git clone https://github.com/akshu20791/supermario-game or use this https://github.com/Elamugilan/supermario-game
-cd supermario-game
-cd EKS-TF
-vim backend.tf and also change the main.tf(about the insatnce type) and if you are using the same root ID change the EKS name 
-#name = "EKS_CLOUD_1"
-#name = "eks-node-group-cloud_1
-#node_group_name = "Node-cloud_1"
-#name = "eks-node-group-cloud"
-terraform init
-terraform validate
-terraform plan
-terraform apply --auto-approve
+
 aws eks update-kubeconfig --name EKS_CLOUD --region us-east-1(change the region based on your region)
-cd ..
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-kubectl get all
-kubectl describe service mario-service
+e
 
 copy the loadbalance ingress address and search in the new tab
